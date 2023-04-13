@@ -6,11 +6,10 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-public class BeanConfig {
 
     @Configuration
-    @ComponentScan(basePackages = {"kr.hs.study.beans","kr.hs.study.db"})
-    public class BeanConfigClass {
+    @ComponentScan(basePackages = {"kr.hs.study.dao","kr.hs.study.dto"})
+    public class BeanConfig {
         //Datasource
         @Bean
         public BasicDataSource source() {
@@ -29,7 +28,7 @@ public class BeanConfig {
         public JdbcTemplate db(BasicDataSource source) {
             JdbcTemplate db = new JdbcTemplate(source);
             return db;
+
         }
-    }
 
 }
